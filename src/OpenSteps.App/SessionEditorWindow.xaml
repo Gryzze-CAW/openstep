@@ -1,6 +1,7 @@
 <Window x:Class="OpenSteps.App.SessionEditorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:OpenSteps.App"
         xmlns:local="clr-namespace:OpenSteps.App"
         Title="OpenSteps" Width="1160" Height="780" MinWidth="940" MinHeight="620"
         WindowStartupLocation="CenterScreen"
@@ -42,14 +43,14 @@
 
                 <Button Grid.Column="0"
                         Content="&#xE72B;"
-                        ToolTip="Back to recorder"
+                        ToolTip="{loc:T Editor_Back}"
                         Click="BackToRecorder_Click"
                         Style="{StaticResource IconButton}"
                         Width="36" Height="36"
                         Margin="0,0,16,0" />
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                    <TextBlock Text="GUIDE TITLE"
+                    <TextBlock Text="{loc:T Editor_GuideTitleLabel}"
                                Style="{StaticResource CaptionText}"
                                Margin="2,0,0,2" />
                     <TextBox x:Name="SessionTitleBox"
@@ -60,19 +61,19 @@
                              Foreground="{StaticResource TextPrimaryBrush}"
                              Padding="2,0"
                              MinHeight="30"
-                             ToolTip="Guide title"
+                             ToolTip="{loc:T Editor_GuideTitleTip}"
                              LostFocus="TextEdit_LostFocus"
                              TextChanged="SessionTitleBox_TextChanged" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                     <Button Content="&#xE7C8;"
-                            ToolTip="Record more steps"
+                            ToolTip="{loc:T Editor_RecordMore}"
                             Click="RecordMore_Click"
                             Style="{StaticResource IconButton}"
                             Width="36" Height="36" />
                     <Button Content="&#xE74E;"
-                            ToolTip="Save"
+                            ToolTip="{loc:T Common_Save}"
                             Click="SaveSession_Click"
                             Style="{StaticResource IconButton}"
                             Width="36" Height="36"
@@ -88,7 +89,7 @@
                                        FontSize="13"
                                        VerticalAlignment="Center"
                                        Margin="0,0,8,0" />
-                            <TextBlock Text="Export guide" VerticalAlignment="Center" />
+                            <TextBlock Text="{loc:T Common_ExportGuide}" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -115,11 +116,11 @@
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" />
                     </Border>
-                    <TextBlock Text="No steps yet"
+                    <TextBlock Text="{loc:T Editor_NoSteps}"
                                Style="{StaticResource HeadingText}"
                                HorizontalAlignment="Center"
                                Margin="0,18,0,4" />
-                    <TextBlock Text="Click ‘Record more steps’ to start capturing."
+                    <TextBlock Text="{loc:T Editor_NoStepsHint}"
                                Style="{StaticResource SubtleText}"
                                HorizontalAlignment="Center" />
                 </StackPanel>
@@ -196,21 +197,21 @@
 
                                             <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                                                 <Button Content="&#xE70F;"
-                                                        ToolTip="Edit screenshot"
+                                                        ToolTip="{loc:T Editor_EditScreenshot}"
                                                         Click="EditScreenshot_Click"
                                                         Style="{StaticResource IconButton}" />
                                                 <Button Content="&#xE722;"
-                                                        ToolTip="Capture new screenshot for this step"
+                                                        ToolTip="{loc:T Editor_CaptureNew}"
                                                         Click="CaptureStepScreenshot_Click"
                                                         Style="{StaticResource IconButton}"
                                                         Margin="4,0,0,0" />
                                                 <Button Content="&#xE8E5;"
-                                                        ToolTip="Import replacement screenshot"
+                                                        ToolTip="{loc:T Editor_ImportReplacement}"
                                                         Click="ImportScreenshot_Click"
                                                         Style="{StaticResource IconButton}"
                                                         Margin="4,0,0,0" />
                                                 <Button Content="&#xE77F;"
-                                                        ToolTip="Paste replacement screenshot"
+                                                        ToolTip="{loc:T Editor_PasteReplacement}"
                                                         Click="PasteScreenshot_Click"
                                                         Style="{StaticResource IconButton}"
                                                         Margin="4,0,0,0" />
@@ -219,16 +220,16 @@
                                                            VerticalAlignment="Center"
                                                            Margin="8,0" />
                                                 <Button Content="&#xECC8;"
-                                                        ToolTip="Insert manual step below"
+                                                        ToolTip="{loc:T Editor_InsertManual}"
                                                         Click="InsertManualStepBelow_Click"
                                                         Style="{StaticResource IconButton}" />
                                                 <Button Content="&#xE74A;"
-                                                        ToolTip="Move up"
+                                                        ToolTip="{loc:T Editor_MoveUp}"
                                                         Click="MoveStepUp_Click"
                                                         Style="{StaticResource IconButton}"
                                                         Margin="4,0,0,0" />
                                                 <Button Content="&#xE74B;"
-                                                        ToolTip="Move down"
+                                                        ToolTip="{loc:T Editor_MoveDown}"
                                                         Click="MoveStepDown_Click"
                                                         Style="{StaticResource IconButton}"
                                                         Margin="4,0,0,0" />
@@ -237,7 +238,7 @@
                                                            VerticalAlignment="Center"
                                                            Margin="8,0" />
                                                 <Button Content="&#xE74D;"
-                                                        ToolTip="Delete step"
+                                                        ToolTip="{loc:T Editor_DeleteStep}"
                                                         Click="DeleteStep_Click"
                                                         Style="{StaticResource DangerIconButton}" />
                                             </StackPanel>
@@ -287,7 +288,7 @@
                                                                        Foreground="White"
                                                                        VerticalAlignment="Center"
                                                                        Margin="0,0,5,0" />
-                                                            <TextBlock Text="Redacted"
+                                                            <TextBlock Text="{loc:T Editor_Redacted}"
                                                                        FontSize="10.5"
                                                                        FontWeight="SemiBold"
                                                                        Foreground="White"
@@ -296,7 +297,7 @@
                                                     </Border>
 
                                                     <Button Content="&#xE890;"
-                                                            ToolTip="View screenshot"
+                                                            ToolTip="{loc:T Editor_ViewScreenshot}"
                                                             Click="ViewScreenshot_Click"
                                                             Style="{StaticResource IconButton}"
                                                             Background="#CCFFFFFF"

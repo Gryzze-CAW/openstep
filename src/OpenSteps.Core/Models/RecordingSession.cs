@@ -1,3 +1,4 @@
+using OpenSteps.Core.Services;
 namespace OpenSteps.Core.Models;
 
 public sealed class RecordingSession
@@ -10,7 +11,7 @@ public sealed class RecordingSession
 
     public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now;
 
-    public string Title { get; set; } = "Untitled OpenSteps Guide";
+    public string Title { get; set; } = Loc.Get("Guide_Untitled");
 
     public string SessionDirectory { get; set; } = string.Empty;
 

@@ -43,7 +43,7 @@ public sealed class MarkdownExporter
             safe = safe[..80].Trim();
         }
 
-        return string.IsNullOrWhiteSpace(safe) ? "OpenSteps Guide" : safe;
+        return string.IsNullOrWhiteSpace(safe) ? Loc.Get("Guide_FolderFallback") : safe;
     }
 
     public async Task<ExportResult> ExportAsync(RecordingSession session, string parentFolder, CancellationToken cancellationToken = default)
@@ -72,7 +72,7 @@ public sealed class MarkdownExporter
 
             if (!File.Exists(screenshotPath))
             {
-                warnings.Add($"Step {i + 1} screenshot was missing and was skipped.");
+                warnings.Add(Loc.Format("Guide_ScreenshotMissing", i + 1));
                 continue;
             }
 
@@ -123,7 +123,7 @@ public sealed class MarkdownExporter
     {
         var html = new StringBuilder();
         html.AppendLine("<!doctype html>");
-        html.AppendLine("<html lang=\"en\">");
+        html.AppendLine($"<html lang=\"{Loc.LanguageCode}\">");
         html.AppendLine("<head>");
         html.AppendLine("<meta charset=\"utf-8\">");
         html.AppendLine("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
@@ -137,19 +137,19 @@ public sealed class MarkdownExporter
         html.AppendLine("</style>");
         html.AppendLine("</head>");
         html.AppendLine("<body><main>");
-        html.AppendLine($"<h1>{Encode(string.IsNullOrWhiteSpace(session.Title) ? "Untitled OpenSteps Guide" : session.Title.Trim())}</h1>");
-        html.AppendLine("<p>Created with OpenSteps.</p>");
+        html.AppendLine($"<h1>{Encode(string.IsNullOrWhiteSpace(session.Title) ? Loc.Get("Guide_Untitled") : session.Title.Trim())}</h1>");
+        html.AppendLine($"<p>{Encode(Loc.Get("Guide_CreatedWith"))}</p>");
 
         for (var i = 0; i < session.Steps.Count; i++)
         {
             var step = session.Steps[i];
             var number = i + 1;
-            var title = string.IsNullOrWhiteSpace(step.DisplayTitle) ? $"Step {number}" : step.DisplayTitle;
-            html.AppendLine($"<h2>Step {number}: {Encode(title)}</h2>");
+            var title = string.IsNullOrWhiteSpace(step.DisplayTitle) ? Loc.Format("Step_Numbered", number) : step.DisplayTitle;
+            html.AppendLine($"<h2>{Encode(Loc.Format("Guide_StepHeading", number, title))}</h2>");
             var screenshotPath = GetExportScreenshotPath(step);
             if (!string.IsNullOrWhiteSpace(screenshotPath) && File.Exists(screenshotPath))
             {
-                html.AppendLine($"<p><img src=\"images/step-{number:000}.png\" alt=\"Step {number}\"></p>");
+                html.AppendLine($"<p><img src=\"images/step-{number:000}.png\" alt=\"{Loc.Format("Step_Numbered", number)}\"></p>");
             }
 
             if (!string.IsNullOrWhiteSpace(step.UserDescription))

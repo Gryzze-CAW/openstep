@@ -1,10 +1,11 @@
+using OpenSteps.Core.Services;
 namespace OpenSteps.Core.Models;
 
 public sealed class SessionSummary
 {
     public Guid Id { get; set; }
 
-    public string Title { get; set; } = "Untitled OpenSteps Guide";
+    public string Title { get; set; } = Loc.Get("Guide_Untitled");
 
     public DateTimeOffset CreatedAt { get; set; }
 

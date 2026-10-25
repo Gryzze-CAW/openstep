@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Common_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Common_Apply" xml:space="preserve"><value>Apply</value></data>
+  <data name="Common_Continue" xml:space="preserve"><value>Continue</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Common_Undo" xml:space="preserve"><value>Undo</value></data>
+  <data name="Common_ExportGuide" xml:space="preserve"><value>Export guide</value></data>
+  <data name="Saved_Guides" xml:space="preserve"><value>Saved guides</value></data>
+  <data name="Crop_Title" xml:space="preserve"><value>Crop Screenshot</value></data>
+  <data name="Crop_ResetSelection" xml:space="preserve"><value>Reset Selection</value></data>
+  <data name="Crop_SelectAreaFirst" xml:space="preserve"><value>Select an area to crop first.</value></data>
+  <data name="ExportOptions_Title" xml:space="preserve"><value>Export options</value></data>
+  <data name="ExportOptions_Intro" xml:space="preserve"><value>Choose which guide files to create. Screenshots are included alongside them in an /images folder.</value></data>
+  <data name="ExportOptions_MarkdownDescription" xml:space="preserve"><value>Portable, version-controllable, renders in most docs tools.</value></data>
+  <data name="ExportOptions_HtmlDescription" xml:space="preserve"><value>Self-contained page that opens in any browser.</value></data>
+  <data name="ExportOptions_ChooseAtLeastOne" xml:space="preserve"><value>Choose at least one export file type.</value></data>
+  <data name="ExportResult_Title" xml:space="preserve"><value>Export complete</value></data>
+  <data name="ExportResult_Ready" xml:space="preserve"><value>Your guide files are ready.</value></data>
+  <data name="ExportResult_CopyPath" xml:space="preserve"><value>Copy path</value></data>
+  <data name="ExportResult_OpenFolder" xml:space="preserve"><value>Open folder</value></data>
+  <data name="ExportResult_CreatedFiles" xml:space="preserve"><value>CREATED FILES</value></data>
+  <data name="ExportResult_Warnings" xml:space="preserve"><value>WARNINGS</value></data>
+  <data name="ExportResult_NoWarnings" xml:space="preserve"><value>No warnings.</value></data>
+  <data name="Main_DragToMove" xml:space="preserve"><value>Drag to move</value></data>
+  <data name="Main_CaptureLabel" xml:space="preserve"><value>Capture</value></data>
+  <data name="Main_ModeTooltip" xml:space="preserve"><value>Full desktop captures all visible monitors. Active window only captures the foreground window when possible and falls back to full desktop if needed.</value></data>
+  <data name="Main_CaptureTestStep" xml:space="preserve"><value>Capture test step</value></data>
+  <data name="Rec_Start" xml:space="preserve"><value>Start recording</value></data>
+  <data name="Rec_Pause" xml:space="preserve"><value>Pause recording</value></data>
+  <data name="Rec_Resume" xml:space="preserve"><value>Resume recording</value></data>
+  <data name="Rec_Stop" xml:space="preserve"><value>Stop recording</value></data>
+  <data name="Rec_Paused" xml:space="preserve"><value>Paused</value></data>
+  <data name="Rec_Recording" xml:space="preserve"><value>Recording</value></data>
+  <data name="Unit_Step" xml:space="preserve"><value>step</value></data>
+  <data name="Unit_Steps" xml:space="preserve"><value>steps</value></data>
+  <data name="Tray_Show" xml:space="preserve"><value>Show recorder</value></data>
+  <data name="Tray_Tooltip" xml:space="preserve"><value>OpenSteps — Recording</value></data>
+  <data name="Tray_BalloonTitle" xml:space="preserve"><value>OpenSteps is recording</value></data>
+  <data name="Tray_BalloonText" xml:space="preserve"><value>Right-click the tray icon, or double-click it, to stop.</value></data>
+  <data name="Mode_FullDesktop" xml:space="preserve"><value>Full Desktop</value></data>
+  <data name="Mode_ActiveWindow" xml:space="preserve"><value>Active Window</value></data>
+  <data name="Capture_Capturing" xml:space="preserve"><value>Capturing: {0}</value></data>
+  <data name="Msg_RecordingCouldNotStart" xml:space="preserve"><value>Recording could not start:
+{0}</value></data>
+  <data name="Msg_ExportFolderPrompt" xml:space="preserve"><value>Choose where to create the exported guide folder</value></data>
+  <data name="Msg_ExportFailed" xml:space="preserve"><value>Export failed:
+{0}</value></data>
+  <data name="Msg_CouldNotOpenSessions" xml:space="preserve"><value>Could not open saved sessions:
+{0}</value></data>
+  <data name="Msg_SessionCouldNotBeOpened" xml:space="preserve"><value>That saved session could not be opened. It may have been deleted or its session.json may be damaged.</value></data>
+  <data name="Dialog_ChooseReplacement" xml:space="preserve"><value>Choose replacement screenshot</value></data>
+  <data name="Dialog_ImageFilter" xml:space="preserve"><value>Image files (*.png;*.jpg;*.jpeg;*.bmp)|*.png;*.jpg;*.jpeg;*.bmp|All files (*.*)|*.*</value></data>
+  <data name="Msg_ImportFailed" xml:space="preserve"><value>Screenshot could not be imported:
+{0}</value></data>
+  <data name="Msg_ClipboardNoImage" xml:space="preserve"><value>Clipboard does not contain an image.</value></data>
+  <data name="Msg_PasteFailed" xml:space="preserve"><value>Screenshot could not be pasted:
+{0}</value></data>
+  <data name="Preview_StepScreenshot" xml:space="preserve"><value>Step {0} Screenshot</value></data>
+  <data name="Msg_NoOriginalScreenshot" xml:space="preserve"><value>No original screenshot is available for this step.</value></data>
+  <data name="Msg_EditFailed" xml:space="preserve"><value>Screenshot could not be edited:
+{0}</value></data>
+  <data name="Msg_NoScreenshotToCrop" xml:space="preserve"><value>No screenshot is available to crop for this step.</value></data>
+  <data name="Msg_CropAreaEmpty" xml:space="preserve"><value>The selected crop area was empty.</value></data>
+  <data name="Msg_CropFailed" xml:space="preserve"><value>Screenshot could not be cropped:
+{0}</value></data>
+  <data name="Msg_SavedSession" xml:space="preserve"><value>Saved session:
+{0}</value></data>
+  <data name="Msg_ScreenshotNotFound" xml:space="preserve"><value>Screenshot was not found.</value></data>
+  <data name="Picker_ConfirmDelete" xml:space="preserve"><value>Delete &quot;{0}&quot;?
+
+This removes the saved session folder from this computer.</value></data>
+  <data name="Session_DefaultTitle" xml:space="preserve"><value>OpenSteps Guide {0:yyyy-MM-dd HH.mm}</value></data>
+  <data name="Summary_One" xml:space="preserve"><value>{0} captured step - Local session folder: {1}</value></data>
+  <data name="Summary_Many" xml:space="preserve"><value>{0} captured steps - Local session folder: {1}</value></data>
+  <data name="Step_New" xml:space="preserve"><value>New step</value></data>
+  <data name="Step_Manual" xml:space="preserve"><value>Manual step</value></data>
+  <data name="Step_Numbered" xml:space="preserve"><value>Step {0}</value></data>
+  <data name="Guide_Untitled" xml:space="preserve"><value>Untitled OpenSteps Guide</value></data>
+  <data name="Guide_FolderFallback" xml:space="preserve"><value>OpenSteps Guide</value></data>
+  <data name="Guide_CreatedWith" xml:space="preserve"><value>Created with OpenSteps.</value></data>
+  <data name="Guide_StepHeading" xml:space="preserve"><value>Step {0}: {1}</value></data>
+  <data name="Guide_ScreenshotMissing" xml:space="preserve"><value>Step {0} screenshot was missing and was skipped.</value></data>
+  <data name="Verb_Click" xml:space="preserve"><value>Click</value></data>
+  <data name="Verb_RightClick" xml:space="preserve"><value>Right-click</value></data>
+  <data name="Verb_DoubleClick" xml:space="preserve"><value>Double-click</value></data>
+  <data name="Title_Press" xml:space="preserve"><value>Press {0}</value></data>
+  <data name="Title_EnterHiddenText" xml:space="preserve"><value>Enter hidden text</value></data>
+  <data name="Title_TypeIntoField" xml:space="preserve"><value>Type into the {0} field</value></data>
+  <data name="Title_EnterTextIn" xml:space="preserve"><value>Enter text in {0}</value></data>
+  <data name="Title_EnterText" xml:space="preserve"><value>Enter text</value></data>
+  <data name="Title_PointerButton" xml:space="preserve"><value>{0} the {1} button</value></data>
+  <data name="Title_OpenMenu" xml:space="preserve"><value>Open the {0} menu</value></data>
+  <data name="Title_PointerMenu" xml:space="preserve"><value>{0} the {1} menu</value></data>
+  <data name="Title_PointerField" xml:space="preserve"><value>{0} the {1} field</value></data>
+  <data name="Title_PointerItem" xml:space="preserve"><value>{0} the {1} item</value></data>
+  <data name="Title_PointerIn" xml:space="preserve"><value>{0} in {1}</value></data>
+  <data name="Title_PointerAtPosition" xml:space="preserve"><value>{0} at screen position ({1}, {2})</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>Edit Screenshot</value></data>
+  <data name="Edit_Tool" xml:space="preserve"><value>Tool</value></data>
+  <data name="Edit_TipPixelate" xml:space="preserve"><value>Pixelate</value></data>
+  <data name="Edit_Circle" xml:space="preserve"><value>Circle</value></data>
+  <data name="Edit_TipCircle" xml:space="preserve"><value>Draw red circle</value></data>
+  <data name="Edit_Rect" xml:space="preserve"><value>Rect</value></data>
+  <data name="Edit_TipRect" xml:space="preserve"><value>Draw rectangle</value></data>
+  <data name="Edit_Highlight" xml:space="preserve"><value>Highlight</value></data>
+  <data name="Edit_TipHighlight" xml:space="preserve"><value>Draw semi-transparent highlight</value></data>
+  <data name="Edit_Arrow" xml:space="preserve"><value>Arrow</value></data>
+  <data name="Edit_TipArrow" xml:space="preserve"><value>Draw arrow</value></data>
+  <data name="Edit_TipNumber" xml:space="preserve"><value>Place numbered marker</value></data>
+  <data name="Edit_TipLetter" xml:space="preserve"><value>Place letter marker</value></data>
+  <data name="Edit_TipResetMarkers" xml:space="preserve"><value>Reset marker sequence</value></data>
+  <data name="Edit_Crop" xml:space="preserve"><value>Crop</value></data>
+  <data name="Edit_TipCrop" xml:space="preserve"><value>Crop screenshot</value></data>
+  <data name="Edit_TipClearAll" xml:space="preserve"><value>Clear all</value></data>
+  <data name="Editor_Back" xml:space="preserve"><value>Back to recorder</value></data>
+  <data name="Editor_GuideTitleLabel" xml:space="preserve"><value>GUIDE TITLE</value></data>
+  <data name="Editor_GuideTitleTip" xml:space="preserve"><value>Guide title</value></data>
+  <data name="Editor_RecordMore" xml:space="preserve"><value>Record more steps</value></data>
+  <data name="Editor_NoSteps" xml:space="preserve"><value>No steps yet</value></data>
+  <data name="Editor_NoStepsHint" xml:space="preserve"><value>Click ‘Record more steps’ to start capturing.</value></data>
+  <data name="Editor_EditScreenshot" xml:space="preserve"><value>Edit screenshot</value></data>
+  <data name="Editor_CaptureNew" xml:space="preserve"><value>Capture new screenshot for this step</value></data>
+  <data name="Editor_ImportReplacement" xml:space="preserve"><value>Import replacement screenshot</value></data>
+  <data name="Editor_PasteReplacement" xml:space="preserve"><value>Paste replacement screenshot</value></data>
+  <data name="Editor_InsertManual" xml:space="preserve"><value>Insert manual step below</value></data>
+  <data name="Editor_MoveUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="Editor_MoveDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="Editor_DeleteStep" xml:space="preserve"><value>Delete step</value></data>
+  <data name="Editor_Redacted" xml:space="preserve"><value>Redacted</value></data>
+  <data name="Editor_ViewScreenshot" xml:space="preserve"><value>View screenshot</value></data>
+  <data name="Picker_Intro" xml:space="preserve"><value>Open a previous capture or browse the folder on disk.</value></data>
+  <data name="Picker_OpenFolderTip" xml:space="preserve"><value>Open sessions folder</value></data>
+  <data name="Picker_ShowInExplorer" xml:space="preserve"><value>Show in Explorer</value></data>
+  <data name="Picker_Empty" xml:space="preserve"><value>No saved guides yet</value></data>
+  <data name="Picker_EmptyHint" xml:space="preserve"><value>Capture a recording and it will appear here.</value></data>
+  <data name="Picker_DeleteTip" xml:space="preserve"><value>Delete guide</value></data>
+  <data name="Picker_StepsSuffix" xml:space="preserve"><value> steps</value></data>
+  <data name="Language_Tooltip" xml:space="preserve"><value>Language</value></data>
+  <data name="Language_Auto" xml:space="preserve"><value>Windows language</value></data>
+  <data name="Language_RestartNote" xml:space="preserve"><value>Restart OpenSteps to apply the language.</value></data>
+</root>

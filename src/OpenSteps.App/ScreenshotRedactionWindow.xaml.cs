@@ -618,7 +618,7 @@ public partial class ScreenshotRedactionWindow : Window
     {
         if (!File.Exists(path))
         {
-            throw new FileNotFoundException("Screenshot was not found.", path);
+            throw new FileNotFoundException(Loc.Get("Msg_ScreenshotNotFound"), path);
         }
 
         var image = new BitmapImage();

@@ -5,6 +5,7 @@ using System.Windows.Media.Imaging;
 using WpfMouseEventArgs = System.Windows.Input.MouseEventArgs;
 using WpfPoint = System.Windows.Point;
 using WinForms = System.Windows.Forms;
+using OpenSteps.Core.Services;
 
 namespace OpenSteps.App;
 
@@ -62,7 +63,7 @@ public partial class CropWindow : Window
     {
         if (_selection is not { Width: > 1, Height: > 1 } selection)
         {
-            WinForms.MessageBox.Show("Select an area to crop first.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+            WinForms.MessageBox.Show(Loc.Get("Crop_SelectAreaFirst"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
             return;
         }
 

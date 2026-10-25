@@ -27,7 +27,7 @@ public partial class ExportOptionsWindow : Window
 
         if (formats == 0)
         {
-            System.Windows.MessageBox.Show("Choose at least one export file type.", "OpenSteps", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Windows.MessageBox.Show(Loc.Get("ExportOptions_ChooseAtLeastOne"), "OpenSteps", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 

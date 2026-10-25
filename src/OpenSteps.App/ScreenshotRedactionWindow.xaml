@@ -1,7 +1,8 @@
 <Window x:Class="OpenSteps.App.ScreenshotRedactionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Edit Screenshot" Height="760" Width="1080" MinHeight="560" MinWidth="760"
+        xmlns:loc="clr-namespace:OpenSteps.App"
+        Title="{loc:T Edit_Title}" Height="760" Width="1080" MinHeight="560" MinWidth="760"
         Background="{StaticResource AppBackgroundBrush}">
     <Grid>
         <Grid.RowDefinitions>
@@ -16,41 +17,41 @@
             </Border.Effect>
             <DockPanel LastChildFill="False">
                 <WrapPanel DockPanel.Dock="Left" VerticalAlignment="Center">
-                    <TextBlock Text="Tool" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"
+                    <TextBlock Text="{loc:T Edit_Tool}" FontWeight="SemiBold" Foreground="{StaticResource TextPrimaryBrush}"
                                VerticalAlignment="Center" Margin="0,0,10,0" />
-                    <Button x:Name="PixelateToolButton" Content="Pixel" ToolTip="Pixelate"
+                    <Button x:Name="PixelateToolButton" Content="Pixel" ToolTip="{loc:T Edit_TipPixelate}"
                             Click="PixelateTool_Click"
                             Padding="12,6" Margin="0,0,8,0" FontWeight="SemiBold" />
-                    <Button x:Name="RedCircleToolButton" Content="Circle" ToolTip="Draw red circle"
+                    <Button x:Name="RedCircleToolButton" Content="{loc:T Edit_Circle}" ToolTip="{loc:T Edit_TipCircle}"
                             Click="RedCircleTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button x:Name="RectangleToolButton" Content="Rect" ToolTip="Draw rectangle"
+                    <Button x:Name="RectangleToolButton" Content="{loc:T Edit_Rect}" ToolTip="{loc:T Edit_TipRect}"
                             Click="RectangleTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button x:Name="HighlightToolButton" Content="Highlight" ToolTip="Draw semi-transparent highlight"
+                    <Button x:Name="HighlightToolButton" Content="{loc:T Edit_Highlight}" ToolTip="{loc:T Edit_TipHighlight}"
                             Click="HighlightTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button x:Name="ArrowToolButton" Content="Arrow" ToolTip="Draw arrow"
+                    <Button x:Name="ArrowToolButton" Content="{loc:T Edit_Arrow}" ToolTip="{loc:T Edit_TipArrow}"
                             Click="ArrowTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button x:Name="NumberToolButton" Content="1" ToolTip="Place numbered marker"
+                    <Button x:Name="NumberToolButton" Content="1" ToolTip="{loc:T Edit_TipNumber}"
                             Click="NumberTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button x:Name="LetterToolButton" Content="A" ToolTip="Place letter marker"
+                    <Button x:Name="LetterToolButton" Content="A" ToolTip="{loc:T Edit_TipLetter}"
                             Click="LetterTool_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button Content="Reset" ToolTip="Reset marker sequence"
+                    <Button Content="Reset" ToolTip="{loc:T Edit_TipResetMarkers}"
                             Click="ResetSequence_Click"
                             Padding="12,6" Margin="0,0,8,0" />
-                    <Button Content="Crop" ToolTip="Crop screenshot" Click="Crop_Click"
+                    <Button Content="{loc:T Edit_Crop}" ToolTip="{loc:T Edit_TipCrop}" Click="Crop_Click"
                             Padding="12,6" Margin="0,0,18,0" />
                 </WrapPanel>
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                    <Button Content="&#xE7A7;" ToolTip="Undo" Click="Undo_Click"
+                    <Button Content="&#xE7A7;" ToolTip="{loc:T Common_Undo}" Click="Undo_Click"
                             Style="{StaticResource IconButton}" Margin="0,0,8,0" />
-                    <Button Content="&#xE894;" ToolTip="Clear all" Click="ClearAll_Click"
+                    <Button Content="&#xE894;" ToolTip="{loc:T Edit_TipClearAll}" Click="ClearAll_Click"
                             Style="{StaticResource IconButton}" Margin="0,0,8,0" />
-                    <Button Content="&#xE74E;" ToolTip="Save" Click="Save_Click"
+                    <Button Content="&#xE74E;" ToolTip="{loc:T Common_Save}" Click="Save_Click"
                             Style="{StaticResource PrimaryIconButton}" />
                 </StackPanel>
             </DockPanel>
