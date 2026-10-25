@@ -86,6 +86,18 @@ public sealed class LocalizationTests
         Assert.Null((await new SettingsService(path + ".missing").LoadAsync()).Language);
     }
 
+    [Fact]
+    public async Task PdfExporter_ExplainsInDutchWhenNoBrowserIsFound()
+    {
+        using var _ = new CultureScope("nl-BE");
+        var temp = Path.Combine(Path.GetTempPath(), "OpenSteps.Tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(temp);
+
+        var error = await new PdfExporter(Path.Combine(temp, "missing.exe")).ExportAsync(Path.Combine(temp, "a.html"), Path.Combine(temp, "a.pdf"));
+
+        Assert.Equal("Microsoft Edge of Google Chrome is niet gevonden.", error);
+    }
+
     private static Dictionary<string, string> Load(CultureInfo culture)
     {
         var set = Resources.GetResourceSet(culture, createIfNotExists: true, tryParents: false)!;

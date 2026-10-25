@@ -122,7 +122,7 @@ public sealed class MarkdownExporter
                 }
                 else
                 {
-                    warnings.Add($"PDF was not created: {error}");
+                    warnings.Add(Loc.Format("Pdf_NotCreated", error));
                 }
             }
             finally

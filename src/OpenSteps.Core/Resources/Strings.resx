@@ -144,4 +144,10 @@ This removes the saved session folder from this computer.</value></data>
   <data name="Language_Tooltip" xml:space="preserve"><value>Language</value></data>
   <data name="Language_Auto" xml:space="preserve"><value>Windows language</value></data>
   <data name="Language_RestartNote" xml:space="preserve"><value>Restart OpenSteps to apply the language.</value></data>
+  <data name="ExportOptions_PdfDescription" xml:space="preserve"><value>Printable document. Needs Microsoft Edge or Google Chrome on this PC.</value></data>
+  <data name="Pdf_NotCreated" xml:space="preserve"><value>PDF was not created: {0}</value></data>
+  <data name="Pdf_NoBrowser" xml:space="preserve"><value>Microsoft Edge or Google Chrome was not found.</value></data>
+  <data name="Pdf_CouldNotStart" xml:space="preserve"><value>The browser could not be started.</value></data>
+  <data name="Pdf_Timeout" xml:space="preserve"><value>The browser did not finish within 60 seconds.</value></data>
+  <data name="Pdf_NoFile" xml:space="preserve"><value>The browser finished without writing a PDF file.</value></data>
 </root>

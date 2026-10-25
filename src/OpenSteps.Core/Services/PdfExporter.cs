@@ -34,7 +34,7 @@ public sealed class PdfExporter
         var browser = _browserPath ?? FindBrowserPath();
         if (browser is null || !File.Exists(browser))
         {
-            return "Microsoft Edge or Google Chrome was not found.";
+            return Loc.Get("Pdf_NoBrowser");
         }
 
         // A separate profile folder stops the browser from handing the job to an Edge window that is already open.
@@ -51,7 +51,7 @@ public sealed class PdfExporter
 
             if (process is null)
             {
-                return "The browser could not be started.";
+                return Loc.Get("Pdf_CouldNotStart");
             }
 
             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -63,10 +63,10 @@ public sealed class PdfExporter
             catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
             {
                 process.Kill(entireProcessTree: true);
-                return "The browser did not finish within 60 seconds.";
+                return Loc.Get("Pdf_Timeout");
             }
 
-            return File.Exists(pdfPath) ? null : "The browser finished without writing a PDF file.";
+            return File.Exists(pdfPath) ? null : Loc.Get("Pdf_NoFile");
         }
         finally
         {

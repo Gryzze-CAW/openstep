@@ -144,4 +144,10 @@ De opgeslagen map wordt van deze computer verwijderd.</value></data>
   <data name="Language_Tooltip" xml:space="preserve"><value>Taal</value></data>
   <data name="Language_Auto" xml:space="preserve"><value>Taal van Windows</value></data>
   <data name="Language_RestartNote" xml:space="preserve"><value>Start OpenSteps opnieuw op om de taal toe te passen.</value></data>
+  <data name="ExportOptions_PdfDescription" xml:space="preserve"><value>Afdrukbaar document. Vereist Microsoft Edge of Google Chrome op deze pc.</value></data>
+  <data name="Pdf_NotCreated" xml:space="preserve"><value>De pdf is niet aangemaakt: {0}</value></data>
+  <data name="Pdf_NoBrowser" xml:space="preserve"><value>Microsoft Edge of Google Chrome is niet gevonden.</value></data>
+  <data name="Pdf_CouldNotStart" xml:space="preserve"><value>De browser kon niet worden gestart.</value></data>
+  <data name="Pdf_Timeout" xml:space="preserve"><value>De browser was niet klaar binnen 60 seconden.</value></data>
+  <data name="Pdf_NoFile" xml:space="preserve"><value>De browser is klaar zonder een pdf-bestand te maken.</value></data>
 </root>
