@@ -79,8 +79,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     public ScreenshotModeOption[] ScreenshotModeOptions { get; } =
     [
-        new("Full Desktop", ScreenshotMode.FullDesktop),
-        new("Active Window", ScreenshotMode.ActiveWindow)
+        new(Loc.Get("Mode_FullDesktop"), ScreenshotMode.FullDesktop),
+        new(Loc.Get("Mode_ActiveWindow"), ScreenshotMode.ActiveWindow)
     ];
 
     public ScreenshotMode ScreenshotMode
@@ -108,7 +108,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     public string ScreenshotModeDisplayText => ScreenshotModeLabels.GetDisplayText(ScreenshotMode);
 
-    public string CaptureModeLabel => $"Capturing: {ScreenshotModeDisplayText}";
+    public string CaptureModeLabel => Loc.Format("Capture_Capturing", ScreenshotModeDisplayText);
 
     internal string SessionsRootDirectory => _sessionStore.RootDirectory;
 
@@ -214,7 +214,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             RefreshRecordingStatus();
             HideRecordingTray();
             Show();
-            WinForms.MessageBox.Show($"Recording could not start:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_RecordingCouldNotStart", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
             return;
         }
 
@@ -608,7 +608,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
         using var dialog = new WinForms.FolderBrowserDialog
         {
-            Description = "Choose where to create the exported guide folder",
+            Description = Loc.Get("Msg_ExportFolderPrompt"),
             UseDescriptionForTitle = true
         };
 
@@ -630,7 +630,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Export failed:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_ExportFailed", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -642,6 +642,31 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     internal async Task AutosaveSessionFromEditorAsync()
     {
         await SaveSessionAsync(showMessage: false, refreshStepViews: false);
+    }
+
+    private void Language_Click(object sender, RoutedEventArgs e)
+    {
+        var menu = new System.Windows.Controls.ContextMenu
+        {
+            PlacementTarget = (UIElement)sender,
+            Placement = System.Windows.Controls.Primitives.PlacementMode.Top
+        };
+        AddLanguageItem(menu, Loc.Get("Language_Auto"), null);
+        AddLanguageItem(menu, "English", "en");
+        AddLanguageItem(menu, "Nederlands", "nl");
+        menu.IsOpen = true;
+    }
+
+    private void AddLanguageItem(System.Windows.Controls.ContextMenu menu, string header, string? language)
+    {
+        var item = new System.Windows.Controls.MenuItem { Header = header, IsChecked = _settings.Language == language };
+        item.Click += async (_, _) =>
+        {
+            _settings.Language = language;
+            await _settingsService.SaveAsync(_settings);
+            WinForms.MessageBox.Show(Loc.Get("Language_RestartNote"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+        };
+        menu.Items.Add(item);
     }
 
     private async void OpenPreviousSession_Click(object sender, RoutedEventArgs e)
@@ -660,7 +685,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Could not open saved sessions:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_CouldNotOpenSessions", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -674,7 +699,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         var session = await _sessionStore.LoadSessionAsync(sessionId);
         if (session is null)
         {
-            WinForms.MessageBox.Show("That saved session could not be opened. It may have been deleted or its session.json may be damaged.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Warning);
+            WinForms.MessageBox.Show(Loc.Get("Msg_SessionCouldNotBeOpened"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Warning);
             return;
         }
 
@@ -754,8 +779,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
         var dialog = new Microsoft.Win32.OpenFileDialog
         {
-            Title = "Choose replacement screenshot",
-            Filter = "Image files (*.png;*.jpg;*.jpeg;*.bmp)|*.png;*.jpg;*.jpeg;*.bmp|All files (*.*)|*.*"
+            Title = Loc.Get("Dialog_ChooseReplacement"),
+            Filter = Loc.Get("Dialog_ImageFilter")
         };
 
         if (dialog.ShowDialog(_editorWindow) != true)
@@ -770,7 +795,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Screenshot could not be imported:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_ImportFailed", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -785,14 +810,14 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             if (!System.Windows.Clipboard.ContainsImage())
             {
-                WinForms.MessageBox.Show("Clipboard does not contain an image.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+                WinForms.MessageBox.Show(Loc.Get("Msg_ClipboardNoImage"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
                 return;
             }
 
             var image = System.Windows.Clipboard.GetImage();
             if (image is null)
             {
-                WinForms.MessageBox.Show("Clipboard does not contain an image.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+                WinForms.MessageBox.Show(Loc.Get("Msg_ClipboardNoImage"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
                 return;
             }
 
@@ -801,7 +826,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Screenshot could not be pasted:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_PasteFailed", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -867,7 +892,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
         var preview = new Window
         {
-            Title = $"Step {step.Index} Screenshot",
+            Title = Loc.Format("Preview_StepScreenshot", step.Index),
             Owner = _editorWindow,
             Width = Math.Min(1200, SystemParameters.WorkArea.Width * 0.9),
             Height = Math.Min(800, SystemParameters.WorkArea.Height * 0.9),
@@ -894,7 +919,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             || string.IsNullOrWhiteSpace(step.ScreenshotPath)
             || !File.Exists(step.ScreenshotPath))
         {
-            WinForms.MessageBox.Show("No original screenshot is available for this step.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+            WinForms.MessageBox.Show(Loc.Get("Msg_NoOriginalScreenshot"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
             return;
         }
 
@@ -940,7 +965,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Screenshot could not be edited:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_EditFailed", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -973,7 +998,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (string.IsNullOrWhiteSpace(step.EffectiveScreenshotPath)
             || !File.Exists(step.EffectiveScreenshotPath))
         {
-            WinForms.MessageBox.Show("No screenshot is available to crop for this step.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+            WinForms.MessageBox.Show(Loc.Get("Msg_NoScreenshotToCrop"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
             return;
         }
 
@@ -994,7 +1019,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var cropRect = cropWindow.CropRect;
             if (cropRect.Width <= 0 || cropRect.Height <= 0)
             {
-                WinForms.MessageBox.Show("The selected crop area was empty.", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+                WinForms.MessageBox.Show(Loc.Get("Msg_CropAreaEmpty"), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
                 return;
             }
 
@@ -1021,7 +1046,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            WinForms.MessageBox.Show($"Screenshot could not be cropped:\n{ex.Message}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
+            WinForms.MessageBox.Show(Loc.Format("Msg_CropFailed", ex.Message), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Error);
         }
     }
 
@@ -1080,7 +1105,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             var title = _titleGenerator.GenerateWithReason(step);
             step.GeneratedTitle = title.Title;
             step.GeneratedTitleReason = title.Reason;
-            if (string.IsNullOrWhiteSpace(step.UserTitle) || step.UserTitle == "New step" || step.UserTitle == "Manual step")
+            if (string.IsNullOrWhiteSpace(step.UserTitle) || step.UserTitle == Loc.Get("Step_New") || step.UserTitle == Loc.Get("Step_Manual"))
             {
                 step.UserTitle = title.Title;
             }
@@ -1170,7 +1195,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         _session = new RecordingSession
         {
             Id = sessionId,
-            Title = $"OpenSteps Guide {DateTimeOffset.Now:yyyy-MM-dd HH.mm}",
+            Title = Loc.Format("Session_DefaultTitle", DateTimeOffset.Now),
             SessionDirectory = sessionDirectory,
             OutputDirectory = sessionDirectory
         };
@@ -1318,7 +1343,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     private void UpdateSessionSummary()
     {
-        _editorWindow?.SetSummary($"{Steps.Count} captured step{(Steps.Count == 1 ? string.Empty : "s")} - Local session folder: {_session.OutputDirectory}");
+        _editorWindow?.SetSummary(Loc.Format(Steps.Count == 1 ? "Summary_One" : "Summary_Many", Steps.Count, _session.OutputDirectory));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Steps)));
     }
 
@@ -1333,13 +1358,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         PauseRecordingButton.Visibility = _isRecording ? Visibility.Visible : Visibility.Collapsed;
         StopRecordingButton.Visibility = _isRecording ? Visibility.Visible : Visibility.Collapsed;
         PauseRecordingButton.Content = _isPaused ? "\uE768" : "\uE769";
-        PauseRecordingButton.ToolTip = _isPaused ? "Resume recording" : "Pause recording";
+        PauseRecordingButton.ToolTip = _isPaused ? Loc.Get("Rec_Resume") : Loc.Get("Rec_Pause");
 
         if (_isRecording)
         {
             var elapsed = DateTimeOffset.Now - _recordingStartedAt;
-            var state = _isPaused ? "Paused" : "Recording";
-            var stepLabel = Steps.Count == 1 ? "step" : "steps";
+            var state = _isPaused ? Loc.Get("Rec_Paused") : Loc.Get("Rec_Recording");
+            var stepLabel = Steps.Count == 1 ? Loc.Get("Unit_Step") : Loc.Get("Unit_Steps");
             RecordingStatusText.Text = $"{state} - {ScreenshotModeDisplayText} - {elapsed:mm\\:ss} - {Steps.Count} {stepLabel}";
             RecordingDot.Visibility = _isPaused ? Visibility.Collapsed : Visibility.Visible;
             UpdateTrayStatus(state, elapsed, stepLabel);
@@ -1363,18 +1388,18 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             ShowImageMargin = false
         };
 
-        var stopItem = new WinForms.ToolStripMenuItem("Stop recording");
+        var stopItem = new WinForms.ToolStripMenuItem(Loc.Get("Rec_Stop"));
         stopItem.Font = new System.Drawing.Font(stopItem.Font, System.Drawing.FontStyle.Bold);
         stopItem.Click += async (_, _) => await TrayStopRecordingAsync();
         menu.Items.Add(stopItem);
 
-        _trayPauseItem = new WinForms.ToolStripMenuItem("Pause recording");
+        _trayPauseItem = new WinForms.ToolStripMenuItem(Loc.Get("Rec_Pause"));
         _trayPauseItem.Click += (_, _) => TrayTogglePause();
         menu.Items.Add(_trayPauseItem);
 
         menu.Items.Add(new WinForms.ToolStripSeparator());
 
-        var showItem = new WinForms.ToolStripMenuItem("Show recorder");
+        var showItem = new WinForms.ToolStripMenuItem(Loc.Get("Tray_Show"));
         showItem.Click += (_, _) => TrayShowRecorder();
         menu.Items.Add(showItem);
 
@@ -1397,15 +1422,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
 
         _trayIcon.Visible = true;
-        _trayIcon.Text = "OpenSteps — Recording";
+        _trayIcon.Text = Loc.Get("Tray_Tooltip");
         if (_trayPauseItem is not null)
         {
-            _trayPauseItem.Text = "Pause recording";
+            _trayPauseItem.Text = Loc.Get("Rec_Pause");
         }
 
         try
         {
-            _trayIcon.ShowBalloonTip(2200, "OpenSteps is recording", "Right-click the tray icon, or double-click it, to stop.", WinForms.ToolTipIcon.None);
+            _trayIcon.ShowBalloonTip(2200, Loc.Get("Tray_BalloonTitle"), Loc.Get("Tray_BalloonText"), WinForms.ToolTipIcon.None);
         }
         catch
         {
@@ -1441,7 +1466,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
         if (_trayPauseItem is not null)
         {
-            _trayPauseItem.Text = _isPaused ? "Resume recording" : "Pause recording";
+            _trayPauseItem.Text = _isPaused ? Loc.Get("Rec_Resume") : Loc.Get("Rec_Pause");
         }
     }
 
@@ -1522,7 +1547,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
         if (showMessage)
         {
-            WinForms.MessageBox.Show($"Saved session:\n{path}", "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
+            WinForms.MessageBox.Show(Loc.Format("Msg_SavedSession", path), "OpenSteps", WinForms.MessageBoxButtons.OK, WinForms.MessageBoxIcon.Information);
         }
     }
 

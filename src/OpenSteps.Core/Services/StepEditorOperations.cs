@@ -11,8 +11,8 @@ public static class StepEditorOperations
             Index = 1,
             Timestamp = DateTimeOffset.Now,
             ActionType = StepActionType.Manual,
-            GeneratedTitle = "Manual step",
-            UserTitle = "New step",
+            GeneratedTitle = Loc.Get("Step_Manual"),
+            UserTitle = Loc.Get("Step_New"),
             UserDescription = string.Empty,
             ScreenshotRelativePath = null
         };

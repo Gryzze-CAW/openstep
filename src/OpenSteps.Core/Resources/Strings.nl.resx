@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Common_Cancel" xml:space="preserve"><value>Annuleren</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="Common_Apply" xml:space="preserve"><value>Toepassen</value></data>
+  <data name="Common_Continue" xml:space="preserve"><value>Doorgaan</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Opslaan</value></data>
+  <data name="Common_Undo" xml:space="preserve"><value>Ongedaan maken</value></data>
+  <data name="Common_ExportGuide" xml:space="preserve"><value>Handleiding exporteren</value></data>
+  <data name="Saved_Guides" xml:space="preserve"><value>Opgeslagen handleidingen</value></data>
+  <data name="Crop_Title" xml:space="preserve"><value>Schermafbeelding bijsnijden</value></data>
+  <data name="Crop_ResetSelection" xml:space="preserve"><value>Selectie wissen</value></data>
+  <data name="Crop_SelectAreaFirst" xml:space="preserve"><value>Selecteer eerst een gebied om bij te snijden.</value></data>
+  <data name="ExportOptions_Title" xml:space="preserve"><value>Exportopties</value></data>
+  <data name="ExportOptions_Intro" xml:space="preserve"><value>Kies welke bestanden je wilt aanmaken. De schermafbeeldingen komen in een map /images naast die bestanden.</value></data>
+  <data name="ExportOptions_MarkdownDescription" xml:space="preserve"><value>Draagbaar, geschikt voor versiebeheer en leesbaar in de meeste documentatietools.</value></data>
+  <data name="ExportOptions_HtmlDescription" xml:space="preserve"><value>Zelfstandige pagina die in elke browser opent.</value></data>
+  <data name="ExportOptions_ChooseAtLeastOne" xml:space="preserve"><value>Kies minstens één bestandstype om te exporteren.</value></data>
+  <data name="ExportResult_Title" xml:space="preserve"><value>Export voltooid</value></data>
+  <data name="ExportResult_Ready" xml:space="preserve"><value>Je handleiding is klaar.</value></data>
+  <data name="ExportResult_CopyPath" xml:space="preserve"><value>Pad kopiëren</value></data>
+  <data name="ExportResult_OpenFolder" xml:space="preserve"><value>Map openen</value></data>
+  <data name="ExportResult_CreatedFiles" xml:space="preserve"><value>AANGEMAAKTE BESTANDEN</value></data>
+  <data name="ExportResult_Warnings" xml:space="preserve"><value>WAARSCHUWINGEN</value></data>
+  <data name="ExportResult_NoWarnings" xml:space="preserve"><value>Geen waarschuwingen.</value></data>
+  <data name="Main_DragToMove" xml:space="preserve"><value>Slepen om te verplaatsen</value></data>
+  <data name="Main_CaptureLabel" xml:space="preserve"><value>Opname</value></data>
+  <data name="Main_ModeTooltip" xml:space="preserve"><value>Volledig bureaublad legt alle zichtbare schermen vast. Enkel actief venster legt waar mogelijk alleen het voorgrondvenster vast en valt indien nodig terug op het volledige bureaublad.</value></data>
+  <data name="Main_CaptureTestStep" xml:space="preserve"><value>Teststap vastleggen</value></data>
+  <data name="Rec_Start" xml:space="preserve"><value>Opname starten</value></data>
+  <data name="Rec_Pause" xml:space="preserve"><value>Opname pauzeren</value></data>
+  <data name="Rec_Resume" xml:space="preserve"><value>Opname hervatten</value></data>
+  <data name="Rec_Stop" xml:space="preserve"><value>Opname stoppen</value></data>
+  <data name="Rec_Paused" xml:space="preserve"><value>Gepauzeerd</value></data>
+  <data name="Rec_Recording" xml:space="preserve"><value>Opname bezig</value></data>
+  <data name="Unit_Step" xml:space="preserve"><value>stap</value></data>
+  <data name="Unit_Steps" xml:space="preserve"><value>stappen</value></data>
+  <data name="Tray_Show" xml:space="preserve"><value>Recorder tonen</value></data>
+  <data name="Tray_Tooltip" xml:space="preserve"><value>OpenSteps — Opname bezig</value></data>
+  <data name="Tray_BalloonTitle" xml:space="preserve"><value>OpenSteps neemt op</value></data>
+  <data name="Tray_BalloonText" xml:space="preserve"><value>Klik met de rechtermuisknop op het pictogram in het systeemvak, of dubbelklik erop, om te stoppen.</value></data>
+  <data name="Mode_FullDesktop" xml:space="preserve"><value>Volledig bureaublad</value></data>
+  <data name="Mode_ActiveWindow" xml:space="preserve"><value>Actief venster</value></data>
+  <data name="Capture_Capturing" xml:space="preserve"><value>Opname: {0}</value></data>
+  <data name="Msg_RecordingCouldNotStart" xml:space="preserve"><value>De opname kon niet starten:
+{0}</value></data>
+  <data name="Msg_ExportFolderPrompt" xml:space="preserve"><value>Kies waar de map met de geëxporteerde handleiding moet komen</value></data>
+  <data name="Msg_ExportFailed" xml:space="preserve"><value>De export is mislukt:
+{0}</value></data>
+  <data name="Msg_CouldNotOpenSessions" xml:space="preserve"><value>De opgeslagen handleidingen konden niet worden geopend:
+{0}</value></data>
+  <data name="Msg_SessionCouldNotBeOpened" xml:space="preserve"><value>Die opgeslagen handleiding kon niet worden geopend. Ze is mogelijk verwijderd of het bestand session.json is beschadigd.</value></data>
+  <data name="Dialog_ChooseReplacement" xml:space="preserve"><value>Kies een vervangende schermafbeelding</value></data>
+  <data name="Dialog_ImageFilter" xml:space="preserve"><value>Afbeeldingen (*.png;*.jpg;*.jpeg;*.bmp)|*.png;*.jpg;*.jpeg;*.bmp|Alle bestanden (*.*)|*.*</value></data>
+  <data name="Msg_ImportFailed" xml:space="preserve"><value>De schermafbeelding kon niet worden geïmporteerd:
+{0}</value></data>
+  <data name="Msg_ClipboardNoImage" xml:space="preserve"><value>Het klembord bevat geen afbeelding.</value></data>
+  <data name="Msg_PasteFailed" xml:space="preserve"><value>De schermafbeelding kon niet worden geplakt:
+{0}</value></data>
+  <data name="Preview_StepScreenshot" xml:space="preserve"><value>Schermafbeelding stap {0}</value></data>
+  <data name="Msg_NoOriginalScreenshot" xml:space="preserve"><value>Voor deze stap is geen originele schermafbeelding beschikbaar.</value></data>
+  <data name="Msg_EditFailed" xml:space="preserve"><value>De schermafbeelding kon niet worden bewerkt:
+{0}</value></data>
+  <data name="Msg_NoScreenshotToCrop" xml:space="preserve"><value>Voor deze stap is geen schermafbeelding om bij te snijden.</value></data>
+  <data name="Msg_CropAreaEmpty" xml:space="preserve"><value>Het geselecteerde bijsnijdgebied was leeg.</value></data>
+  <data name="Msg_CropFailed" xml:space="preserve"><value>De schermafbeelding kon niet worden bijgesneden:
+{0}</value></data>
+  <data name="Msg_SavedSession" xml:space="preserve"><value>Handleiding opgeslagen:
+{0}</value></data>
+  <data name="Msg_ScreenshotNotFound" xml:space="preserve"><value>De schermafbeelding is niet gevonden.</value></data>
+  <data name="Picker_ConfirmDelete" xml:space="preserve"><value>&quot;{0}&quot; verwijderen?
+
+De opgeslagen map wordt van deze computer verwijderd.</value></data>
+  <data name="Session_DefaultTitle" xml:space="preserve"><value>OpenSteps-handleiding {0:yyyy-MM-dd HH.mm}</value></data>
+  <data name="Summary_One" xml:space="preserve"><value>{0} vastgelegde stap - Lokale sessiemap: {1}</value></data>
+  <data name="Summary_Many" xml:space="preserve"><value>{0} vastgelegde stappen - Lokale sessiemap: {1}</value></data>
+  <data name="Step_New" xml:space="preserve"><value>Nieuwe stap</value></data>
+  <data name="Step_Manual" xml:space="preserve"><value>Handmatige stap</value></data>
+  <data name="Step_Numbered" xml:space="preserve"><value>Stap {0}</value></data>
+  <data name="Guide_Untitled" xml:space="preserve"><value>Naamloze OpenSteps-handleiding</value></data>
+  <data name="Guide_FolderFallback" xml:space="preserve"><value>OpenSteps-handleiding</value></data>
+  <data name="Guide_CreatedWith" xml:space="preserve"><value>Gemaakt met OpenSteps.</value></data>
+  <data name="Guide_StepHeading" xml:space="preserve"><value>Stap {0}: {1}</value></data>
+  <data name="Guide_ScreenshotMissing" xml:space="preserve"><value>De schermafbeelding van stap {0} ontbrak en is overgeslagen.</value></data>
+  <data name="Verb_Click" xml:space="preserve"><value>Klik</value></data>
+  <data name="Verb_RightClick" xml:space="preserve"><value>Klik met de rechtermuisknop</value></data>
+  <data name="Verb_DoubleClick" xml:space="preserve"><value>Dubbelklik</value></data>
+  <data name="Title_Press" xml:space="preserve"><value>Druk op {0}</value></data>
+  <data name="Title_EnterHiddenText" xml:space="preserve"><value>Voer verborgen tekst in</value></data>
+  <data name="Title_TypeIntoField" xml:space="preserve"><value>Typ in het veld {0}</value></data>
+  <data name="Title_EnterTextIn" xml:space="preserve"><value>Voer tekst in bij {0}</value></data>
+  <data name="Title_EnterText" xml:space="preserve"><value>Voer tekst in</value></data>
+  <data name="Title_PointerButton" xml:space="preserve"><value>{0} op de knop {1}</value></data>
+  <data name="Title_OpenMenu" xml:space="preserve"><value>Open het menu {0}</value></data>
+  <data name="Title_PointerMenu" xml:space="preserve"><value>{0} op het menu {1}</value></data>
+  <data name="Title_PointerField" xml:space="preserve"><value>{0} op het veld {1}</value></data>
+  <data name="Title_PointerItem" xml:space="preserve"><value>{0} op het item {1}</value></data>
+  <data name="Title_PointerIn" xml:space="preserve"><value>{0} in {1}</value></data>
+  <data name="Title_PointerAtPosition" xml:space="preserve"><value>{0} op schermpositie ({1}, {2})</value></data>
+  <data name="Edit_Title" xml:space="preserve"><value>Schermafbeelding bewerken</value></data>
+  <data name="Edit_Tool" xml:space="preserve"><value>Hulpmiddel</value></data>
+  <data name="Edit_TipPixelate" xml:space="preserve"><value>Pixeleren</value></data>
+  <data name="Edit_Circle" xml:space="preserve"><value>Cirkel</value></data>
+  <data name="Edit_TipCircle" xml:space="preserve"><value>Rode cirkel tekenen</value></data>
+  <data name="Edit_Rect" xml:space="preserve"><value>Rechthoek</value></data>
+  <data name="Edit_TipRect" xml:space="preserve"><value>Rechthoek tekenen</value></data>
+  <data name="Edit_Highlight" xml:space="preserve"><value>Markeren</value></data>
+  <data name="Edit_TipHighlight" xml:space="preserve"><value>Doorzichtige markering tekenen</value></data>
+  <data name="Edit_Arrow" xml:space="preserve"><value>Pijl</value></data>
+  <data name="Edit_TipArrow" xml:space="preserve"><value>Pijl tekenen</value></data>
+  <data name="Edit_TipNumber" xml:space="preserve"><value>Genummerde markering plaatsen</value></data>
+  <data name="Edit_TipLetter" xml:space="preserve"><value>Markering met letter plaatsen</value></data>
+  <data name="Edit_TipResetMarkers" xml:space="preserve"><value>Volgorde van markeringen herstarten</value></data>
+  <data name="Edit_Crop" xml:space="preserve"><value>Bijsnijden</value></data>
+  <data name="Edit_TipCrop" xml:space="preserve"><value>Schermafbeelding bijsnijden</value></data>
+  <data name="Edit_TipClearAll" xml:space="preserve"><value>Alles wissen</value></data>
+  <data name="Editor_Back" xml:space="preserve"><value>Terug naar recorder</value></data>
+  <data name="Editor_GuideTitleLabel" xml:space="preserve"><value>TITEL VAN DE HANDLEIDING</value></data>
+  <data name="Editor_GuideTitleTip" xml:space="preserve"><value>Titel van de handleiding</value></data>
+  <data name="Editor_RecordMore" xml:space="preserve"><value>Meer stappen opnemen</value></data>
+  <data name="Editor_NoSteps" xml:space="preserve"><value>Nog geen stappen</value></data>
+  <data name="Editor_NoStepsHint" xml:space="preserve"><value>Klik op ‘Meer stappen opnemen’ om te beginnen.</value></data>
+  <data name="Editor_EditScreenshot" xml:space="preserve"><value>Schermafbeelding bewerken</value></data>
+  <data name="Editor_CaptureNew" xml:space="preserve"><value>Nieuwe schermafbeelding voor deze stap maken</value></data>
+  <data name="Editor_ImportReplacement" xml:space="preserve"><value>Vervangende schermafbeelding importeren</value></data>
+  <data name="Editor_PasteReplacement" xml:space="preserve"><value>Vervangende schermafbeelding plakken</value></data>
+  <data name="Editor_InsertManual" xml:space="preserve"><value>Handmatige stap eronder invoegen</value></data>
+  <data name="Editor_MoveUp" xml:space="preserve"><value>Omhoog</value></data>
+  <data name="Editor_MoveDown" xml:space="preserve"><value>Omlaag</value></data>
+  <data name="Editor_DeleteStep" xml:space="preserve"><value>Stap verwijderen</value></data>
+  <data name="Editor_Redacted" xml:space="preserve"><value>Afgedekt</value></data>
+  <data name="Editor_ViewScreenshot" xml:space="preserve"><value>Schermafbeelding bekijken</value></data>
+  <data name="Picker_Intro" xml:space="preserve"><value>Open een eerdere opname of blader door de map op schijf.</value></data>
+  <data name="Picker_OpenFolderTip" xml:space="preserve"><value>Map met handleidingen openen</value></data>
+  <data name="Picker_ShowInExplorer" xml:space="preserve"><value>Tonen in Verkenner</value></data>
+  <data name="Picker_Empty" xml:space="preserve"><value>Nog geen opgeslagen handleidingen</value></data>
+  <data name="Picker_EmptyHint" xml:space="preserve"><value>Maak een opname en ze verschijnt hier.</value></data>
+  <data name="Picker_DeleteTip" xml:space="preserve"><value>Handleiding verwijderen</value></data>
+  <data name="Picker_StepsSuffix" xml:space="preserve"><value> stappen</value></data>
+  <data name="Language_Tooltip" xml:space="preserve"><value>Taal</value></data>
+  <data name="Language_Auto" xml:space="preserve"><value>Taal van Windows</value></data>
+  <data name="Language_RestartNote" xml:space="preserve"><value>Start OpenSteps opnieuw op om de taal toe te passen.</value></data>
+</root>

@@ -13,38 +13,38 @@ public sealed class StepTitleGenerator
     {
         if (step.ActionType == StepActionType.Shortcut && !string.IsNullOrWhiteSpace(step.ShortcutName))
         {
-            return new StepTitleResult($"Press {step.ShortcutName}", "keyboard shortcut");
+            return new StepTitleResult(Loc.Format("Title_Press", step.ShortcutName), "keyboard shortcut");
         }
 
         if (step.ActionType == StepActionType.SpecialKey && !string.IsNullOrWhiteSpace(step.SpecialKeyName))
         {
-            return new StepTitleResult($"Press {step.SpecialKeyName}", "special key");
+            return new StepTitleResult(Loc.Format("Title_Press", step.SpecialKeyName), "special key");
         }
 
         if (step.ActionType == StepActionType.TextEntry)
         {
             if (step.IsSensitiveInput)
             {
-                return new StepTitleResult("Enter hidden text", "sensitive text entry");
+                return new StepTitleResult(Loc.Get("Title_EnterHiddenText"), "sensitive text entry");
             }
 
             var target = Clean(step.InputTargetName);
             if (!string.IsNullOrWhiteSpace(target))
             {
-                return new StepTitleResult($"Type into the {Quote(target)} field", "named text input target");
+                return new StepTitleResult(Loc.Format("Title_TypeIntoField", Quote(target)), "named text input target");
             }
 
             if (!string.IsNullOrWhiteSpace(step.WindowTitle))
             {
-                return new StepTitleResult($"Enter text in {step.WindowTitle}", "text entry window title fallback");
+                return new StepTitleResult(Loc.Format("Title_EnterTextIn", step.WindowTitle), "text entry window title fallback");
             }
 
             if (!string.IsNullOrWhiteSpace(step.ProcessName))
             {
-                return new StepTitleResult($"Enter text in {step.ProcessName}", "text entry process name fallback");
+                return new StepTitleResult(Loc.Format("Title_EnterTextIn", step.ProcessName), "text entry process name fallback");
             }
 
-            return new StepTitleResult("Enter text", "text entry fallback");
+            return new StepTitleResult(Loc.Get("Title_EnterText"), "text entry fallback");
         }
 
         var name = Clean(step.ElementName);
@@ -55,44 +55,44 @@ public sealed class StepTitleGenerator
         {
             if (IsControlType(controlType, "Button"))
             {
-                return new StepTitleResult($"{verb} the {Quote(name)} button", $"useful Button element name for {step.ActionType}");
+                return new StepTitleResult(Loc.Format("Title_PointerButton", verb, Quote(name)), $"useful Button element name for {step.ActionType}");
             }
 
             if (IsControlType(controlType, "MenuItem"))
             {
                 return step.ActionType == StepActionType.Click
-                    ? new StepTitleResult($"Open the {Quote(name)} menu", "useful MenuItem element name")
-                    : new StepTitleResult($"{verb} the {Quote(name)} menu", $"useful MenuItem element name for {step.ActionType}");
+                    ? new StepTitleResult(Loc.Format("Title_OpenMenu", Quote(name)), "useful MenuItem element name")
+                    : new StepTitleResult(Loc.Format("Title_PointerMenu", verb, Quote(name)), $"useful MenuItem element name for {step.ActionType}");
             }
 
             if (IsControlType(controlType, "Edit"))
             {
-                return new StepTitleResult($"{verb} the {Quote(name)} field", $"useful Edit element name for {step.ActionType}");
+                return new StepTitleResult(Loc.Format("Title_PointerField", verb, Quote(name)), $"useful Edit element name for {step.ActionType}");
             }
 
-            return new StepTitleResult($"{verb} the {Quote(name)} item", $"useful UI Automation element name for {step.ActionType}");
+            return new StepTitleResult(Loc.Format("Title_PointerItem", verb, Quote(name)), $"useful UI Automation element name for {step.ActionType}");
         }
 
         if (!string.IsNullOrWhiteSpace(step.WindowTitle))
         {
-            return new StepTitleResult($"{verb} in {step.WindowTitle}", "window title fallback");
+            return new StepTitleResult(Loc.Format("Title_PointerIn", verb, step.WindowTitle), "window title fallback");
         }
 
         if (!string.IsNullOrWhiteSpace(step.ProcessName))
         {
-            return new StepTitleResult($"{verb} in {step.ProcessName}", "process name fallback");
+            return new StepTitleResult(Loc.Format("Title_PointerIn", verb, step.ProcessName), "process name fallback");
         }
 
-        return new StepTitleResult($"{verb} at screen position ({step.ClickX}, {step.ClickY})", "coordinate fallback");
+        return new StepTitleResult(Loc.Format("Title_PointerAtPosition", verb, step.ClickX, step.ClickY), "coordinate fallback");
     }
 
     private static string GetPointerVerb(StepActionType actionType)
     {
         return actionType switch
         {
-            StepActionType.RightClick => "Right-click",
-            StepActionType.DoubleClick => "Double-click",
-            _ => "Click"
+            StepActionType.RightClick => Loc.Get("Verb_RightClick"),
+            StepActionType.DoubleClick => Loc.Get("Verb_DoubleClick"),
+            _ => Loc.Get("Verb_Click")
         };
     }
 

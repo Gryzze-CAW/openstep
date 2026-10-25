@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using OpenSteps.Core.Models;
 using WinForms = System.Windows.Forms;
+using OpenSteps.Core.Services;
 
 namespace OpenSteps.App;
 
@@ -96,7 +97,7 @@ public partial class SessionPickerWindow : Window, INotifyPropertyChanged
         }
 
         var result = WinForms.MessageBox.Show(
-            $"Delete \"{summary.Title}\"?\n\nThis removes the saved session folder from this computer.",
+            Loc.Format("Picker_ConfirmDelete", summary.Title),
             "OpenSteps",
             WinForms.MessageBoxButtons.YesNo,
             WinForms.MessageBoxIcon.Warning);

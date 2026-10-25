@@ -16,7 +16,7 @@ public partial class ExportResultWindow : Window
             ? result.ExportFolder
             : string.Join(Environment.NewLine, result.OutputPaths);
         WarningsTextBox.Text = result.Warnings.Count == 0
-            ? "No warnings."
+            ? Loc.Get("ExportResult_NoWarnings")
             : string.Join(Environment.NewLine, result.Warnings);
         WarningsCount.Text = result.Warnings.Count == 0
             ? string.Empty

@@ -10,21 +10,21 @@ public sealed class MarkdownBuilder
         var markdown = new StringBuilder();
         markdown.AppendLine($"# {EscapeHeading(session.Title)}");
         markdown.AppendLine();
-        markdown.AppendLine("Created with OpenSteps.");
+        markdown.AppendLine(Loc.Get("Guide_CreatedWith"));
         markdown.AppendLine();
 
         for (var i = 0; i < session.Steps.Count; i++)
         {
             var step = session.Steps[i];
             var number = i + 1;
-            var title = string.IsNullOrWhiteSpace(step.DisplayTitle) ? $"Step {number}" : step.DisplayTitle;
-            markdown.AppendLine($"## Step {number}: {title}");
+            var title = string.IsNullOrWhiteSpace(step.DisplayTitle) ? Loc.Format("Step_Numbered", number) : step.DisplayTitle;
+            markdown.AppendLine($"## {Loc.Format("Guide_StepHeading", number, title)}");
             markdown.AppendLine();
 
             var screenshotPath = GetExportScreenshotPath(step);
             if (!string.IsNullOrWhiteSpace(screenshotPath) && File.Exists(screenshotPath))
             {
-                markdown.AppendLine($"![Step {number}](images/step-{number:000}.png)");
+                markdown.AppendLine($"![{Loc.Format("Step_Numbered", number)}](images/step-{number:000}.png)");
                 markdown.AppendLine();
             }
 
@@ -40,7 +40,7 @@ public sealed class MarkdownBuilder
 
     private static string EscapeHeading(string value)
     {
-        return string.IsNullOrWhiteSpace(value) ? "Untitled OpenSteps Guide" : value.Trim();
+        return string.IsNullOrWhiteSpace(value) ? Loc.Get("Guide_Untitled") : value.Trim();
     }
 
     private static string? GetExportScreenshotPath(RecordedStep step)

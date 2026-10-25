@@ -145,7 +145,7 @@ public sealed class SessionStore : ISessionStorageService
             return;
         }
 
-        session.Title = string.IsNullOrWhiteSpace(newTitle) ? "Untitled OpenSteps Guide" : newTitle.Trim();
+        session.Title = string.IsNullOrWhiteSpace(newTitle) ? Loc.Get("Guide_Untitled") : newTitle.Trim();
         await SaveSessionAsync(session, cancellationToken);
     }
 

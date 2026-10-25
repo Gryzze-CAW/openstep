@@ -1,6 +1,7 @@
 <Window x:Class="OpenSteps.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:OpenSteps.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
@@ -134,7 +135,7 @@
 
                 <!--  Brand + drag handle  -->
                 <Button Content="&#xE700;"
-                        ToolTip="Drag to move"
+                        ToolTip="{loc:T Main_DragToMove}"
                         PreviewMouseLeftButtonDown="MoveControl_MouseLeftButtonDown"
                         Style="{StaticResource PillIconButton}"
                         Cursor="SizeAll" />
@@ -148,7 +149,7 @@
                 <Rectangle Style="{StaticResource Divider}" Margin="14,0,12,0" />
 
                 <!--  Capture mode  -->
-                <TextBlock Text="Capture"
+                <TextBlock Text="{loc:T Main_CaptureLabel}"
                            Foreground="{StaticResource TextMutedBrush}"
                            FontSize="12"
                            VerticalAlignment="Center"
@@ -159,38 +160,43 @@
                           SelectedValue="{Binding ScreenshotMode, Mode=TwoWay}"
                           Width="158"
                           Style="{StaticResource PillComboBox}"
-                          ToolTip="Full desktop captures all visible monitors. Active window only captures the foreground window when possible and falls back to full desktop if needed." />
+                          ToolTip="{loc:T Main_ModeTooltip}" />
 
                 <Rectangle Style="{StaticResource Divider}" />
 
                 <!--  Record / Pause / Stop / Test  -->
                 <Button x:Name="StartRecordingButton"
                         Content="&#xE7C8;"
-                        ToolTip="Start recording"
+                        ToolTip="{loc:T Rec_Start}"
                         Click="StartRecording_Click"
                         Style="{StaticResource PrimaryPillIconButton}" />
                 <Button x:Name="PauseRecordingButton"
                         Content="&#xE769;"
-                        ToolTip="Pause recording"
+                        ToolTip="{loc:T Rec_Pause}"
                         Click="PauseRecording_Click"
                         Style="{StaticResource PrimaryPillIconButton}"
                         Margin="8,0,0,0"
                         Visibility="Collapsed" />
                 <Button x:Name="StopRecordingButton"
                         Content="&#xE71A;"
-                        ToolTip="Stop recording"
+                        ToolTip="{loc:T Rec_Stop}"
                         Click="StopRecording_Click"
                         Style="{StaticResource DangerPillIconButton}"
                         Margin="8,0,0,0"
                         Visibility="Collapsed" />
                 <Button Content="&#xE722;"
-                        ToolTip="Capture test step"
+                        ToolTip="{loc:T Main_CaptureTestStep}"
                         Click="CaptureTestStep_Click"
                         Style="{StaticResource PillIconButton}"
                         Margin="8,0,0,0" />
                 <Button Content="&#xE8B7;"
-                        ToolTip="Saved guides"
+                        ToolTip="{loc:T Saved_Guides}"
                         Click="OpenPreviousSession_Click"
+                        Style="{StaticResource PillIconButton}"
+                        Margin="2,0,0,0" />
+                <Button Content="&#xE774;"
+                        ToolTip="{loc:T Language_Tooltip}"
+                        Click="Language_Click"
                         Style="{StaticResource PillIconButton}"
                         Margin="2,0,0,0" />
 
@@ -228,7 +234,7 @@
                 <Rectangle Style="{StaticResource Divider}" Margin="4,0,8,0" />
 
                 <Button Content="&#xE711;"
-                        ToolTip="Close"
+                        ToolTip="{loc:T Common_Close}"
                         Click="Close_Click"
                         Style="{StaticResource PillIconButton}" />
             </StackPanel>

@@ -6,6 +6,6 @@ public static class ScreenshotModeLabels
 {
     public static string GetDisplayText(ScreenshotMode mode)
     {
-        return mode == ScreenshotMode.ActiveWindow ? "Active Window" : "Full Desktop";
+        return Loc.Get(mode == ScreenshotMode.ActiveWindow ? "Mode_ActiveWindow" : "Mode_FullDesktop");
     }
 }
